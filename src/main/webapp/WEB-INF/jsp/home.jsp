@@ -5,7 +5,7 @@
 <div class="main-content">
 	<div class="container-fluid">
 
-		<div class="row">
+		<div class="container-fluid">
 			<div class="col-md-3">
 				<h2>프로그램목록관리(??)</h2>
 			</div>
@@ -22,7 +22,7 @@
 
 
 
-		<div class="row bg-success">
+		<div class="container-fluid bg-success">
 			<form class="form-inline" action="/action_page.php">
 				<div class="form-group">
 					<label class="">업무대분류</label> <select class="form-control"
