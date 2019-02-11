@@ -13,8 +13,6 @@
 	<!-- 위 3개의 메타 태그는 *반드시* head 태그의 처음에 와야합니다; 어떤 다른 콘텐츠들은 반드시 이 태그들 *다음에* 와야 합니다 -->
 	<title><tiles:getAsString name="title" /></title>
 	
-	
-	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" type="text/css" />
 	<!-- bootstrap 3.4.0 -->
 	<link href="<c:url value="/resources/bootstrap-3.4.0-dist/css/bootstrap.min.css"/>" rel="stylesheet">
 	<!-- gijgo 1.9.11 css-->	    

@@ -21,6 +21,10 @@
         <put-attribute name="body" value="/WEB-INF/jsp/greeting.jsp" />
     </definition>
     
+        <definition name="todoList" extends="layout.basic">
+        <put-attribute name="body" value="/WEB-INF/jsp/todoList.jsp" />
+    </definition>
+    
     
     <!-- WILDCARD & EL -->
     <definition name="WILDCARD:tiles/*/**" extends="layout.basic">

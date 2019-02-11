@@ -1,10 +1,18 @@
 @charset "UTF-8";
 
-
 .custom-frame {
-	padding: 5px 0;
+	padding: 10px 5px;
 }
 
-.custom-inline-frame {
-	padding: 10px 3px;
+.custom-form-frame {
+	padding: 2px 10px;
+}
+
+.custom-top-bottom-frame {
+	padding: 10px 0px;
+}
+
+.custom-table-align {
+	vertical-align: center;
+	text-align: center;
 }

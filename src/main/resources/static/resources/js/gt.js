@@ -41,16 +41,17 @@ $("#gt-table tbody tr")
 					// URL
 
 					var popOption = "width=800, height=600, resizable=no, scrollbars=no, status=no;"; // 팝업창
-					// 옵션(optoin)
+					// 옵션(option)
 
-					window.open(popUrl, "", popOption);
+					var newWindow = window.open(popUrl, "singleton", popOption);
+			
 
 				});
 
 var today = new Date(new Date().getFullYear(), new Date().getMonth(),
 		new Date().getDate());
 $('#devPlanStartDate').datepicker({
-	uiLibrary : 'bootstrap4',
+	uiLibrary : 'bootstrap',
 	format : 'yyyy-mm-dd',
 	// minDate: today,
 	maxDate : function() {
@@ -58,7 +59,7 @@ $('#devPlanStartDate').datepicker({
 	}
 });
 $('#devPlanEndDate').datepicker({
-	uiLibrary : 'bootstrap4',
+	uiLibrary : 'bootstrap',
 	format : 'yyyy-mm-dd',
 	minDate : function() {
 		return $('#devPlanStartDate').val();
@@ -66,7 +67,7 @@ $('#devPlanEndDate').datepicker({
 });
 
 $('#devRealStartDate').datepicker({
-	uiLibrary : 'bootstrap4',
+	uiLibrary : 'bootstrap',
 	// minDate: today,
 	format : 'yyyy-mm-dd',
 	maxDate : function() {
@@ -75,7 +76,7 @@ $('#devRealStartDate').datepicker({
 });
 
 $('#devRealEndDate').datepicker({
-	uiLibrary : 'bootstrap4',
+	uiLibrary : 'bootstrap',
 	// minDate: today,
 	format : 'yyyy-mm-dd',
 	minDate : function() {
@@ -84,7 +85,7 @@ $('#devRealEndDate').datepicker({
 });
 
 $('#testPlanStartDate').datepicker({
-	uiLibrary : 'bootstrap4',
+	uiLibrary : 'bootstrap',
 	// minDate: today,
 	format : 'yyyy-mm-dd',
 	maxDate : function() {
@@ -93,7 +94,7 @@ $('#testPlanStartDate').datepicker({
 });
 
 $('#testRealStartDate').datepicker({
-	uiLibrary : 'bootstrap4',
+	uiLibrary : 'bootstrap',
 	// minDate: today,
 	format : 'yyyy-mm-dd',
 	minDate : function() {
