@@ -1,0 +1,10 @@
+@charset "UTF-8";
+
+
+.custom-frame {
+	padding: 5px 0;
+}
+
+.custom-inline-frame {
+	padding: 10px 3px;
+}

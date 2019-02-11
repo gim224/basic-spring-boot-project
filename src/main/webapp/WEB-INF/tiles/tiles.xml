@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE tiles-definitions PUBLIC
+       "-//Apache Software Foundation//DTD Tiles Configuration 3.0//EN"
+       "http://tiles.apache.org/dtds/tiles-config_3_0.dtd">
+<tiles-definitions>
+
+    <!-- Templates -->      
+    <definition name="layout.basic" template="/WEB-INF/tiles/layout/template.jsp">
+        <put-attribute name="title" value="개발을 하자 by GT" />
+        <put-attribute name="header" value="/WEB-INF/tiles/layout/header.jsp" />
+        <put-attribute name="body" value="" />
+        <put-attribute name="footer" value="/WEB-INF/tiles/layout/footer.jsp" />
+    </definition>
+    
+    <!-- Pages -->        
+    <definition name="site.home" extends="layout.basic">
+        <put-attribute name="body" value="/WEB-INF/jsp/home.jsp" />
+    </definition>
+    
+    <definition name="site.greeting" extends="layout.basic">
+        <put-attribute name="body" value="/WEB-INF/jsp/greeting.jsp" />
+    </definition>
+    
+    
+    <!-- WILDCARD & EL -->
+    <definition name="WILDCARD:tiles/*/**" extends="layout.basic">
+    	<put-attribute name="title" expression="${title}"/>
+    	<put-attribute name="body" value="/{1}/{2}.jsp"/>
+    </definition>
+</tiles-definitions>
