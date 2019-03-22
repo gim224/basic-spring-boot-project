@@ -8,28 +8,23 @@
 
 		<div class="custom-top-bottom-frame container-fluid">
 			<div class="col-md-3">
-				<h3>프로그램목록관리(??)</h3>
+				<h6><b>프로그램목록관리(??)</b></h6>
 			</div>
-			<div class="col-md-3">
-				<p>(gt-kim/V.201809)</p>
+			<div class="col-md-3 custom-div-align">
+				<h6>(gt-kim/V.201903)</h6>
 			</div>
 			<div class="col-md-6 row text-right">
-				<a href="#" class="btn btn-success" role="button"><span
-					class="glyphicon glyphicon-floppy-save" aria-hidden="true"></span>
-					엑셀 </a> <a href="#" class="btn btn-warning" role="button"><span
-					class="glyphicon glyphicon-star" aria-hidden="true"></span> 즐겨찾기추가
-				</a> <a href="#" class="btn btn-info" role="button"><span
-					class="glyphicon glyphicon-info-sign" aria-hidden="true"></span>
-					도움말 </a> <a href="#" class="btn btn-danger" role="button"><span
-					class="glyphicon glyphicon-remove-sign" aria-hidden="true"></span>
-					닫기 </a>
+				<button class="btn btn-success" data-toggle="modal" data-target="#myModal" data-backdrop="static" data-keyboard="false" title="엑셀 등록하기"><span class="glyphicon glyphicon-floppy-open" aria-hidden="true"></span> import Excel </button>
+				<a href="#" class="btn btn-warning" role="button" title="엑셀 내려받기"><span class="glyphicon glyphicon-floppy-save" aria-hidden="true"></span> export Excel </a>  
+				<a href="#" class="btn btn-info" role="button"><span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span> 도움말 </a> 
+				<a href="#" class="btn btn-danger" role="button"><span class="glyphicon glyphicon-remove-sign" aria-hidden="true"></span> 닫기 </a>
 			</div>
 		</div>
 
 
 
 		<div class="custom-frame container-fluid bg-warning">
-			<form class="form-inline" action="/action_page.php">
+			<form class="form-inline" action="#">
 				<div class="form-group custom-form-frame">
 					<label class="">업무대분류</label> <select class="form-control input-sm"
 						id="part" name="">
@@ -77,101 +72,138 @@
 			</form>
 		</div>
 
+
 		<div class="custom-top-bottom-frame container-fluid">
-			<div class="table-responsive">
-				<table id="gt-table" class="table table-bordered table-hover">
-					<thead class="bg-info">
-						<tr class="">
-							<th rowspan="2" class="custom-table-align">순번</th>
-							<th rowspan="2" class="custom-table-align">화면ID</th>
-							<th rowspan="2" class="custom-table-align">화면명</th>
-							<th rowspan="2" class="custom-table-align">부문명</th>
-							<th rowspan="2" class="custom-table-align">업무명</th>
-							<th rowspan="2" class="custom-table-align">단위업무명</th>
-							<th rowspan="2" class="custom-table-align">프로그램ID</th>
-							<th rowspan="2" class="custom-table-align">프로그램명</th>
-							<th rowspan="2" class="custom-table-align">소스파일명</th>
-							<th rowspan="2" class="custom-table-align">확장자</th>
-							<th rowspan="2" class="custom-table-align">유형</th>
-							<th rowspan="2" class="custom-table-align">난이도</th>
-							<th rowspan="2" class="custom-table-align">개발자</th>
-							<th rowspan="2" class="custom-table-align">변경구분</th>
-							<th rowspan="2" class="custom-table-align">변경일자</th>
-							<th rowspan="2" class="custom-table-align">배치ID</th>
-							<th rowspan="2" class="custom-table-align">인터페이스ID</th>
-							<th rowspan="2" class="custom-table-align">비고</th>
+			<div id="myGrid" class="ag-theme-balham"></div>
+		</div>
+
+		<!-- 		<div class="custom-top-bottom-frame container-fluid"> -->
+		<!-- 			<div class="table-responsive"> -->
+		<!-- 				<table id="gt-table" class="table table-bordered table-hover"> -->
+		<!-- 					<thead class="bg-info"> -->
+		<!-- 						<tr class=""> -->
+		<!-- 							<th rowspan="2" class="custom-table-align">순번</th> -->
+		<!-- 							<th rowspan="2" class="custom-table-align">화면ID</th> -->
+		<!-- 							<th rowspan="2" class="custom-table-align">화면명</th> -->
+		<!-- 							<th rowspan="2" class="custom-table-align">부문명</th> -->
+		<!-- 							<th rowspan="2" class="custom-table-align">업무명</th> -->
+		<!-- 							<th rowspan="2" class="custom-table-align">단위업무명</th> -->
+		<!-- 							<th rowspan="2" class="custom-table-align">프로그램ID</th> -->
+		<!-- 							<th rowspan="2" class="custom-table-align">프로그램명</th> -->
+		<!-- 							<th rowspan="2" class="custom-table-align">소스파일명</th> -->
+		<!-- 							<th rowspan="2" class="custom-table-align">확장자</th> -->
+		<!-- 							<th rowspan="2" class="custom-table-align">유형</th> -->
+		<!-- 							<th rowspan="2" class="custom-table-align">난이도</th> -->
+		<!-- 							<th rowspan="2" class="custom-table-align">개발자</th> -->
+		<!-- 							<th rowspan="2" class="custom-table-align">변경구분</th> -->
+		<!-- 							<th rowspan="2" class="custom-table-align">변경일자</th> -->
+		<!-- 							<th rowspan="2" class="custom-table-align">배치ID</th> -->
+		<!-- 							<th rowspan="2" class="custom-table-align">인터페이스ID</th> -->
+		<!-- 							<th rowspan="2" class="custom-table-align">비고</th> -->
 
 
-							<th colspan="2" class="custom-table-align">개발계획</th>
-							<th colspan="2" class="custom-table-align">개발실적</th>
+		<!-- 							<th colspan="2" class="custom-table-align">개발계획</th> -->
+		<!-- 							<th colspan="2" class="custom-table-align">개발실적</th> -->
 
-							<th colspan="4" class="custom-table-align">(P??L) 단위테스트</th>
+		<!-- 							<th colspan="4" class="custom-table-align">(P??L) 단위테스트</th> -->
 
 
-						</tr>
-						<tr>
-							<th class="custom-table-align">시작일</th>
-							<th class="custom-table-align">종료일</th>
-							<th class="custom-table-align">시작일</th>
-							<th class="custom-table-align">종료일</th>
-							<th class="custom-table-align">담당자</th>
-							<th class="custom-table-align">계획일</th>
-							<th class="custom-table-align">실적일</th>
-							<th class="custom-table-align">결과</th>
-						</tr>
+		<!-- 						</tr> -->
+		<!-- 						<tr> -->
+		<!-- 							<th class="custom-table-align">시작일</th> -->
+		<!-- 							<th class="custom-table-align">종료일</th> -->
+		<!-- 							<th class="custom-table-align">시작일</th> -->
+		<!-- 							<th class="custom-table-align">종료일</th> -->
+		<!-- 							<th class="custom-table-align">담당자</th> -->
+		<!-- 							<th class="custom-table-align">계획일</th> -->
+		<!-- 							<th class="custom-table-align">실적일</th> -->
+		<!-- 							<th class="custom-table-align">결과</th> -->
+		<!-- 						</tr> -->
 
-					</thead>
-					<tbody>
+		<!-- 					</thead> -->
+		<!-- 					<tbody> -->
 
-						<c:forEach var="i" items="${rows}" varStatus="status">
-							<tr class="custom-table-align">
-								<td>${status.count}</td>
-								<td>${i.uiId}</td>
-								<td>${i.uiName}</td>
-								<td>부문명}</td>
-								<td>업무명}</td>
-								<td>단위업무명}</td>
-								<td>${i.programId}</td>
-								<td>${i.programName}</td>
-								<td>${i.sourceFileName}</td>
-								<td>${i.extension}</td>
-								<td>${i.type}</td>
-								<td>${i.levelOfDifficulty}</td>
-								<td>${i.developerName}</td>
-								<td>변경구분}</td>
-								<td>변경일자}</td>
-								<td>${i.batchId}</td>
-								<td>${i.interfaceId}</td>
-								<td>${i.note}</td>
-								<td>${i.devPlanStartDate}</td>
-								<td>${i.devPlanEndDate}</td>
-								<%-- 								<td>${i.devRealStart}2019.02.08</td> --%>
-								<%-- 								<td>${i.devRealEnd}2019.07.31</td> --%>
-								<!-- 								<td>@{i}김기태</td> -->
-								<!-- 								<td>@{i}2019.08.15</td> -->
-								<!-- 								<td>@{i}2019.08.16</td> -->
-								<!-- 								<td>@{i}PASS</td> -->
-							</tr>
+		<%-- 						<c:forEach var="i" items="${rows}" varStatus="status"> --%>
+		<!-- 							<tr class="custom-table-align"> -->
+		<%-- 								<td>${status.count}</td> --%>
+		<%-- 								<td>${i.uiId}</td> --%>
+		<%-- 								<td>${i.uiName}</td> --%>
+		<!-- 								<td>부문명}</td> -->
+		<!-- 								<td>업무명}</td> -->
+		<!-- 								<td>단위업무명}</td> -->
+		<%-- 								<td>${i.programId}</td> --%>
+		<%-- 								<td>${i.programName}</td> --%>
+		<%-- 								<td>${i.sourceFileName}</td> --%>
+		<%-- 								<td>${i.extension}</td> --%>
+		<%-- 								<td>${i.type}</td> --%>
+		<%-- 								<td>${i.levelOfDifficulty}</td> --%>
+		<%-- 								<td>${i.developerName}</td> --%>
+		<!-- 								<td>변경구분}</td> -->
+		<!-- 								<td>변경일자}</td> -->
+		<%-- 								<td>${i.batchId}</td> --%>
+		<%-- 								<td>${i.interfaceId}</td> --%>
+		<%-- 								<td>${i.note}</td> --%>
+		<%-- 								<td>${i.devPlanStartDate}</td> --%>
+		<%-- 								<td>${i.devPlanEndDate}</td> --%>
+		<%-- 																<td>${i.devRealStart}2019.02.08</td> --%>
+		<%-- 																<td>${i.devRealEnd}2019.07.31</td> --%>
+		<!-- 																<td>@{i}김기태</td> -->
+		<!-- 																<td>@{i}2019.08.15</td> -->
+		<!-- 																<td>@{i}2019.08.16</td> -->
+		<!-- 																<td>@{i}PASS</td> -->
+		<!-- 							</tr> -->
 
-						</c:forEach>
-					</tbody>
+		<%-- 						</c:forEach> --%>
+		<!-- 					</tbody> -->
 
-				</table>
+		<!-- 				</table> -->
+		<!-- 			</div> -->
+
+
+		<%-- 			<div class="col-md-12" id="count">[건수: ${count}건]</div> --%>
+		<!-- 			<!-- 			<ul class="pagination pagination"> -->
+
+		<!-- 			<!-- 				<li><a href="#">1</a></li> -->
+
+		<!-- 			<!-- 				<li><a href="#">2</a></li> -->
+
+		<!-- 			<!-- 				<li><a href="#">3</a></li> -->
+
+		<!-- 			<!-- 				<li><a href="#">4</a></li> -->
+
+		<!-- 			<!-- 				<li><a href="#">5</a></li> -->
+
+		<!-- 			<!-- 			</ul> -->
+
+		<div class="col-lg-12" id="ex1_Result1"></div>
+		<div class="col-lg-12" id="ex1_Result2"></div>
+	</div>
+</div>
+
+
+
+<!-- Modal -->
+<div id="myModal" class="modal fade" role="dialog">
+	<div class="modal-dialog">
+			<!-- Modal content-->
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal">&times;</button>
+				<h4 class="modal-title">File Upload</h4>
 			</div>
-
-
-			<div class="col-md-12" id="count">[건수: ${count}건]</div>
-			<!-- 			<ul class="pagination pagination"> -->
-			<!-- 				<li><a href="#">1</a></li> -->
-			<!-- 				<li><a href="#">2</a></li> -->
-			<!-- 				<li><a href="#">3</a></li> -->
-			<!-- 				<li><a href="#">4</a></li> -->
-			<!-- 				<li><a href="#">5</a></li> -->
-			<!-- 			</ul> -->
-			<div class="col-lg-12" id="ex1_Result1"></div>
-			<div class="col-lg-12" id="ex1_Result2"></div>
+			<form method="POST" enctype="multipart/form-data" action="<c:url value="/importFile"/>">
+			<div class="modal-body">
+				<div>
+					<dl>
+						<dd><input type="file" name="file" /><dd>						
+					</dl>
+				</div>
+			</div>
+				<div class="modal-footer">
+					<input type="submit" class="btn btn-info" value="Upload" />
+					<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+				</div>
+			</form>
 		</div>
 	</div>
-
-
 </div>

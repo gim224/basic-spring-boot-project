@@ -10,6 +10,6 @@ public class PopupController {
 	public String result() {
 		
 		
-		return "test";
+		return "calendarResultRegistration";
 	}
 }

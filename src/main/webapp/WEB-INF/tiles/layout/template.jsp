@@ -19,13 +19,20 @@
     <link href="<c:url value="resources/gijgo-combined-1.9.11/css/gijgo.min.css"/>" rel="stylesheet" type="text/css" />
 	<!-- gt custom css -->
 	<link href="<c:url value="resources/css/gt.css"/>" rel="stylesheet" type="text/css">
+	
+	<!-- ag-grid-community-20.0.0 -->
+	<script src="<c:url value="/resources/ag-grid-community-20.0.0/dist/ag-grid-community.min.js"/>"></script>
+	<link rel="stylesheet" href="<c:url value="/resources/ag-grid-community-20.0.0/dist/styles/ag-grid.css"/>">
+	<link rel="stylesheet" href="<c:url value="/resources/ag-grid-community-20.0.0/dist/styles/ag-theme-balham.css"/>">
+</head>
+	
 
 </head>
 <body>
 	<tiles:insertAttribute name="header" />
 	<tiles:insertAttribute name="body" />
 	<tiles:insertAttribute name="footer" />
-
+	
 	<!-- 페이지를 빨리 읽어들이도록 문서 마지막에 자바스크립트를 배치한다. -->
 
 	<!-- jquery 3.3.1 js -->
@@ -36,6 +43,6 @@
 	<script src="<c:url value="/resources/gijgo-combined-1.9.11/js/gijgo.min.js"/>" type="text/javascript"></script>
 	<!-- gt custom js -->
 	<script src="<c:url value="/resources/js/gt.js"/>"></script>
-
+	<script src="<c:url value="/resources/js/gt-grid.js"/>"></script>
 </body>
 </html>

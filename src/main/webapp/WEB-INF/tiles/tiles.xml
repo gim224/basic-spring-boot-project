@@ -12,23 +12,33 @@
         <put-attribute name="footer" value="/WEB-INF/tiles/layout/footer.jsp" />
     </definition>
     
+        <definition name="layout.onlybody" template="/WEB-INF/tiles/layout/template.jsp">
+        <put-attribute name="title" value="개발을 하자 by GT" />
+        <put-attribute name="header" value="" />
+        <put-attribute name="body" value="" />
+        <put-attribute name="footer" value="" />
+    </definition>
+    
+    
     <!-- Pages -->        
-    <definition name="site.home" extends="layout.basic">
+    <definition name="home" extends="layout.basic">
         <put-attribute name="body" value="/WEB-INF/jsp/home.jsp" />
     </definition>
     
-    <definition name="site.greeting" extends="layout.basic">
-        <put-attribute name="body" value="/WEB-INF/jsp/greeting.jsp" />
-    </definition>
-    
-        <definition name="todoList" extends="layout.basic">
+    <definition name="todoList" extends="layout.basic">
         <put-attribute name="body" value="/WEB-INF/jsp/todoList.jsp" />
     </definition>
     
+    <definition name="calendarResultRegistration" extends="layout.onlybody">
+        <put-attribute name="body" value="/WEB-INF/jsp/calendarResultRegistration.jsp" />
+    </definition>
+    
+    
+    
     
     <!-- WILDCARD & EL -->
-    <definition name="WILDCARD:tiles/*/**" extends="layout.basic">
-    	<put-attribute name="title" expression="${title}"/>
-    	<put-attribute name="body" value="/{1}/{2}.jsp"/>
-    </definition>
+<!--     <definition name="WILDCARD:*/**" extends="layout.basic"> -->
+<!--     	<put-attribute name="title" expression="${title}"/> -->
+<!--     	<put-attribute name="body" value="/{1}/{2}.jsp"/> -->
+<!--     </definition> -->
 </tiles-definitions>

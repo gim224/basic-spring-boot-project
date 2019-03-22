@@ -16,3 +16,7 @@
 	vertical-align: center;
 	text-align: center;
 }
+
+.custom-div-align {
+	vertical-align: bottom;
+}
