@@ -6,7 +6,9 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 /**
  * 
@@ -64,11 +66,11 @@ public class Row {
 	private LocalDate devPlanStartDate; // 개발계획시작일
 
 	private LocalDate devPlanEndDate; // 개발계획종료일
-
-	// 실제개발시작일
-//	private LocalDate realDevStartDate;
-
-	// 실제개발종료일
-//	private LocalDate realDevEndDate;
+	
+	private LocalDate realDevStartDate;	// 실제개발시작일
+	
+	private LocalDate realDevEndDate;	// 실제개발종료일
+	
+	
 
 }

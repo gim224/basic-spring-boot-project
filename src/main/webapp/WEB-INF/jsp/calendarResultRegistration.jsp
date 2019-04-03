@@ -1,22 +1,25 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
-
+<div class="main-content">
 	<div class="container-fluid">
 		<div class="custom-frame">
 			<div class="row">
-				<div class="col-md-3">
-					<h2>일정결과등록(??)</h2>
+				<div class="col-xs-3">
+					<h6>일정결과등록(??)</h6>
 				</div>
-				<div class="col-md-3">(gt-kim/V.201809)</div>
-				<div class="col-md-6 row">
-					<form class="form-inline custom-inline-frame"
-						action="/action_page.php">
-						<button type="submit" class="btn btn-danger">
+				<div class="col-xs-3">
+					<h6>(gt-kim/V.201903)</h6>
+				</div>
+				<div class="col-xs-6 row text-right">
+
+					<a href='javascript:window.close();'>
+						<button class="btn btn-danger">
 							<span class="glyphicon glyphicon-star" aria-hidden="true"></span>
 							닫기
 						</button>
-					</form>
+					</a>
 
 				</div>
 			</div>
@@ -31,9 +34,9 @@
 
 					<div class="form-group custom-inline-frame">
 						<label class="custom-inline-frame">계획 시작일</label> <input
-							id=devPlanStartDate class="input-small" /> <label
+							disabled id=devPlanStartDate class="input-small" value="${row.devPlanStartDate} " /> <label
 							class="custom-inline-frame">계획 종료일</label> <input
-							id="devPlanEndDate" class="input-small" />
+							disabled id="devPlanEndDate" class="input-small" value="${row.devPlanEndDate }"/>
 					</div>
 
 
@@ -51,12 +54,12 @@
 				<div class="row bg-light form-inline">
 
 					<div class="form-group custom-inline-frame">
-						<label class="custom-inline-frame">담당자</label> <input type="text"
-							class="form-control input-small">
+						<label class="custom-inline-frame">개발자</label> <input type="text"
+							readonly class="form-control input-small" value="${row.developerName} ">
 					</div>
 					<div class="form-group custom-inline-frame">
 						<label class="custom-inline-frame">계획일</label> <input
-							id="testPlanStartDate" class="input-small" />
+							disabled id="testPlanStartDate" class="input-small" />
 					</div>
 
 
@@ -101,7 +104,7 @@
 						name="filename" multiple> <label class="custom-file-label"
 						for="customFile">Choose fileasdf</label>
 				</form>
-				
+
 				//순번 // 체크 // 파일명 // 파일크기(Byte) //
 			</div>
 		</div>
@@ -109,3 +112,4 @@
 
 
 
+</div>

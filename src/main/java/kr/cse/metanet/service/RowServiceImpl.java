@@ -19,16 +19,31 @@ public class RowServiceImpl implements RowService{
 		return rowRepository.findAll();
 	}
 	
+	@Override
 	public Row save(Row row) {		
 		return rowRepository.saveAndFlush(row);
 	}
 	
+	@Override
 	public List<Row> saveAll(List<Row> rows) {
 		List<Row> rowList = rowRepository.saveAll(rows);
 		rowRepository.flush();
 		
 		return rowList;
 	}
+
+	@Override
+	public Row getOne(Integer id) {
+		return rowRepository.getOne(id);
+	}
+	
+	@Override
+	public Row update(Row row) {
+		Row r = this.getOne(row.getIdx());
+		return this.save(r);
+	}
+	
+
 	
 	
 

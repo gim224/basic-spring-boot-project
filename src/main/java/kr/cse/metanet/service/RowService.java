@@ -8,8 +8,12 @@ public interface RowService {
 	
 	List<Row> findAll();
 	
+	Row getOne(Integer id);
+	
 	Row save(Row row);
 	
 	List<Row> saveAll(List<Row> rows);
+	
+	Row update(Row row);
 
 }

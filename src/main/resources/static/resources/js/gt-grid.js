@@ -1,23 +1,26 @@
     // specify the columns
     var columnDefs = [
+    { headerName: "프로그램목록",
+    	children: [
       {headerName: "순번", field: ""},
       {headerName: "화면ID", field: "uiId"},
-      {headerName: "화면명", field: "화면명"},
-      {headerName: "부문명", field: "부문명"},
-      {headerName: "업무명", field: "업무명"},
-      {headerName: "단위업무명", field: "단위업무명"},
-      {headerName: "프로그램ID", field: "프로그램ID"},
-      {headerName: "프로그램명", field: "프로그램명"},
-      {headerName: "소스파일명", field: "소스파일명"},
-      {headerName: "확장자", field: "확장자"},
-      {headerName: "유형", field: "유형"},
-      {headerName: "난이도", field: "난이도"},
+      {headerName: "화면명", field: "uiName"},
+      {headerName: "부문명", field: "partName"},
+      {headerName: "업무명", field: "workName"},
+      {headerName: "단위업무명", field: "unitWorkName"},
+      {headerName: "프로그램ID", field: "programId"},
+      {headerName: "프로그램명", field: "programName"},
+      {headerName: "소스파일명", field: "sourceFileName"},
+      {headerName: "확장자", field: "extension"},
+      {headerName: "유형", field: "type"},
+      {headerName: "난이도", field: "levelOfDifficulty"},
       {headerName: "개발자", field: "developerName"},
-      {headerName: "변경구분", field: "변경구분"},
-      {headerName: "변경일자", field: "변경일자"},
-      {headerName: "배치ID", field: "배치ID"},
-      {headerName: "인터페이스ID", field: "인터페이스ID"},
-      {headerName: "비고", field: "비고"},
+      {headerName: "변경구분", field: "divisionOfChange"},
+      {headerName: "변경일자", field: "dateOfChange"},
+      {headerName: "배치ID", field: "batchId"},
+      {headerName: "인터페이스ID", field: "interfaceId"},
+      {headerName: "비고", field: "note"}]
+    },
       {
     	  headerName: "개발계획",
     	  children: [
@@ -28,8 +31,8 @@
       {
     	  headerName: "개발실적",
     	  children: [
-    		  {headerName: "시작일", field: "개발실적-시작일"},
-    		  {headerName: "종료일", field: "개발실적-종료일"}
+    		  {headerName: "시작일", field: "realDevStartDate"},
+    		  {headerName: "종료일", field: "realDevEndDate"}
     		  ]
       },
       {
@@ -57,15 +60,32 @@
     	animateRows: true
       },
       pagination: true,
-      paginationPageSize: 10,
+      paginationPageSize: 100,
       columnDefs: columnDefs,
 //      rowData: rowData,
       multiSortKey: 'ctrl',
-      onRowClicked: function() {					
-    	  var popUrl = "http://localhost:8080/happy";
-    	  var popOption = "width=800, height=600, resizable=no, scrollbars=no, status=no;";
-    	  var newWindow = window.open(popUrl, "singleton", popOption);}
+//      onRowClicked: function() {					
+
+//    	  }
+      rowSelection: 'single',
+      onRowClicked: onRowClicked
+
     };
+    
+    function onRowClicked() {
+        var selectedRows = gridOptions.api.getSelectedRows();
+        var selectedRowsString = '';
+        selectedRows.forEach( function(selectedRow, index) {
+            if (index!==0) {
+                selectedRowsString += ', ';
+            }
+            selectedRowsString += selectedRow.idx;
+        });
+        
+  	  var popUrl = "http://localhost:8080/resultRegistration/?idx="+selectedRowsString;  	  
+  	  var popOption = "width=800, height=600, resizable=no, scrollbars=no, status=no,location=no,toolbar=no;";
+  	  var newWindow = window.open(popUrl, "singleton", popOption);
+    }
     
     function autoSizeAll() {
         var allColumnIds = [];
@@ -74,7 +94,6 @@
         });
         gridOptions.columnApi.autoSizeColumns(allColumnIds);
     }
-    
     
     
     
@@ -90,4 +109,5 @@
 	    return response.json();
 	  }).then(function(data) {
 	    gridOptions.api.setRowData(data);
+	    autoSizeAll();
 	  })

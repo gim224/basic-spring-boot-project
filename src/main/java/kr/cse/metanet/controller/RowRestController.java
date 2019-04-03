@@ -8,18 +8,18 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import kr.cse.metanet.model.Row;
-import kr.cse.metanet.service.RowServiceImpl;
+import kr.cse.metanet.service.RowService;
 
 @RestController
 public class RowRestController {
 	
 	@Autowired
-	private RowServiceImpl rowServiceImpl;
+	private RowService rowService;
 	
 	@RequestMapping(value="/api/rows", method=RequestMethod.GET)
 	public List<Row> getRows() {
 		
-		List<Row> rows = rowServiceImpl.findAll();
+		List<Row> rows = rowService.findAll();
 		
 		return rows;
 	}

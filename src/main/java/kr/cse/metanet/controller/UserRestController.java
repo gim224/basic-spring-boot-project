@@ -22,7 +22,7 @@ public class UserRestController {
 	}
 
 	@RequestMapping("/list")
-	public List<User> list(Model model) {
+	public List<User> list(Model model) {	
 		return userRepository.findAll();
 	}
 }

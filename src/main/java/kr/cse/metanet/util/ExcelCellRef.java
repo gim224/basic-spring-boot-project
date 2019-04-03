@@ -1,6 +1,9 @@
 package kr.cse.metanet.util;
 
+import java.text.SimpleDateFormat;
+
 import org.apache.poi.ss.usermodel.Cell;
+import org.apache.poi.ss.usermodel.DateUtil;
 import org.apache.poi.ss.util.CellReference;
 
 public class ExcelCellRef {
@@ -31,16 +34,39 @@ public class ExcelCellRef {
 		} else {
 			if (cell.getCellType() == Cell.CELL_TYPE_FORMULA) {
 				value = cell.getCellFormula();
+			} else if (cell.getCellType() == Cell.CELL_TYPE_BLANK) {
+				value = "";
 			} else if (cell.getCellType() == Cell.CELL_TYPE_NUMERIC) {
-				value = cell.getNumericCellValue() + "";
+
+				if (DateUtil.isCellDateFormatted(cell)) {
+
+					SimpleDateFormat fommatter = new SimpleDateFormat("yyyy-MM-dd");
+
+					value = fommatter.format(cell.getDateCellValue());
+
+				} else {
+
+					double ddata = cell.getNumericCellValue();
+
+					if (DateUtil.isValidExcelDate(ddata)) {
+
+						SimpleDateFormat fommatter = new SimpleDateFormat("yyyy-MM-dd");
+
+						value = fommatter.format(cell.getDateCellValue());
+
+					} else {
+
+						value = String.valueOf(ddata);
+
+					}
+
+				}
 			} else if (cell.getCellType() == Cell.CELL_TYPE_STRING) {
 				value = cell.getStringCellValue();
 			} else if (cell.getCellType() == Cell.CELL_TYPE_BOOLEAN) {
 				value = cell.getBooleanCellValue() + "";
 			} else if (cell.getCellType() == Cell.CELL_TYPE_ERROR) {
 				value = cell.getErrorCellValue() + "";
-			} else if (cell.getCellType() == Cell.CELL_TYPE_BLANK) {
-				value = "";
 			} else {
 				value = cell.getStringCellValue();
 			}

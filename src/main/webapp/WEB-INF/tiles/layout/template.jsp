@@ -16,9 +16,9 @@
 	<!-- bootstrap 3.4.0 -->
 	<link href="<c:url value="/resources/bootstrap-3.4.0-dist/css/bootstrap.min.css"/>" rel="stylesheet">
 	<!-- gijgo 1.9.11 css-->	    
-    <link href="<c:url value="resources/gijgo-combined-1.9.11/css/gijgo.min.css"/>" rel="stylesheet" type="text/css" />
+    <link href="<c:url value="/resources/gijgo-combined-1.9.11/css/gijgo.min.css"/>" rel="stylesheet" type="text/css" />
 	<!-- gt custom css -->
-	<link href="<c:url value="resources/css/gt.css"/>" rel="stylesheet" type="text/css">
+	<link href="<c:url value="/resources/css/gt.css"/>" rel="stylesheet" type="text/css">
 	
 	<!-- ag-grid-community-20.0.0 -->
 	<script src="<c:url value="/resources/ag-grid-community-20.0.0/dist/ag-grid-community.min.js"/>"></script>
@@ -42,7 +42,7 @@
 	<!-- gijgo 1.9.11 js -->
 	<script src="<c:url value="/resources/gijgo-combined-1.9.11/js/gijgo.min.js"/>" type="text/javascript"></script>
 	<!-- gt custom js -->
-	<script src="<c:url value="/resources/js/gt.js"/>"></script>
+	<script src="<c:url value="/resources/js/gt-datepicker.js"/>"></script>
 	<script src="<c:url value="/resources/js/gt-grid.js"/>"></script>
 </body>
 </html>
