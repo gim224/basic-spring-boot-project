@@ -16,6 +16,9 @@ $('#devPlanStartDate').datepicker({
 $('#devPlanEndDate').datepicker({
 	uiLibrary : 'bootstrap',
 	format : 'yyyy-mm-dd',
+	modal : true,
+	header: true,
+	footer: true,
 	minDate : function() {
 		return $('#devPlanStartDate').val();
 	}
@@ -25,6 +28,9 @@ $('#devRealStartDate').datepicker({
 	uiLibrary : 'bootstrap',
 	// minDate: today,
 	format : 'yyyy-mm-dd',
+	modal : true,
+	header: true,
+	footer: true,
 	maxDate : function() {
 		return $('#devRealEndDate').val();
 	}
@@ -34,6 +40,9 @@ $('#devRealEndDate').datepicker({
 	uiLibrary : 'bootstrap',	
 	// minDate: today,
 	format : 'yyyy-mm-dd',
+	modal : true,
+	header: true,
+	footer: true,
 	minDate : function() {
 		return $('#devRealStartDate').val();
 	}
@@ -44,6 +53,9 @@ $('#testPlanStartDate').datepicker({
 	uiLibrary : 'bootstrap',
 	// minDate: today,
 	format : 'yyyy-mm-dd',
+	modal : true,
+	header: true,
+	footer: true,
 	maxDate : function() {
 		return $('#testRealStartDate').val();
 	}
@@ -53,6 +65,9 @@ $('#testRealStartDate').datepicker({
 	uiLibrary : 'bootstrap',
 	// minDate: today,
 	format : 'yyyy-mm-dd',
+	modal : true,
+	header: true,
+	footer: true,
 	minDate : function() {
 		return $('#testPlanStartDate').val();
 	}

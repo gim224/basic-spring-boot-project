@@ -2,7 +2,7 @@
     var columnDefs = [
     { headerName: "프로그램목록",
     	children: [
-      {headerName: "순번", field: ""},
+      {headerName: "UNIQUE", field: "idx"},
       {headerName: "화면ID", field: "uiId"},
       {headerName: "화면명", field: "uiName"},
       {headerName: "부문명", field: "partName"},

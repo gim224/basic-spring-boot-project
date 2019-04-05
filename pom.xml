@@ -20,7 +20,7 @@
 	<name>Basic</name>
 	<description>basic-frame using spring boot
 [spring boot2.1.2] [java1.8] [apache tiles3] [bootstrap3.4.0] [jquery3.3.1] [Spring Data JPA] [h2] [lombok] [table:ag-grid-community] [date-picker:gijgo] [excel:poi]
-
+[data.sql]
 -- 개발자 정보 --
 이름 : 김기태 (gt.kim)
 생년월일 : 1993.12.28
@@ -42,10 +42,10 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-data-jpa</artifactId>
 		</dependency>
-<!-- 		<dependency> -->
-<!-- 		<groupId>org.springframework.boot</groupId> -->
-<!-- 		<artifactId>spring-boot-starter-security</artifactId> -->
-<!-- 		</dependency> -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-security</artifactId>
+		</dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
@@ -63,13 +63,13 @@
 		<dependency>
 			<groupId>com.h2database</groupId>
 			<artifactId>h2</artifactId>
-<!-- 			<scope>runtime</scope> -->
+			<!-- <scope>runtime</scope> -->
 		</dependency>
-<!-- 		<dependency> -->
-<!-- 			<groupId>mysql</groupId> -->
-<!-- 			<artifactId>mysql-connector-java</artifactId> -->
-<!-- 			<scope>runtime</scope> -->
-<!-- 		</dependency> -->
+		<!-- <dependency> -->
+		<!-- <groupId>mysql</groupId> -->
+		<!-- <artifactId>mysql-connector-java</artifactId> -->
+		<!-- <scope>runtime</scope> -->
+		<!-- </dependency> -->
 		<dependency>
 			<groupId>org.projectlombok</groupId>
 			<artifactId>lombok</artifactId>
@@ -80,11 +80,11 @@
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 		</dependency>
-<!-- 		<dependency> -->
-<!-- 		<groupId>org.springframework.security</groupId> -->
-<!-- 		<artifactId>spring-security-test</artifactId> -->
-<!-- 		<scope>test</scope> -->
-<!-- 		</dependency> -->
+		<dependency>
+			<groupId>org.springframework.security</groupId>
+			<artifactId>spring-security-test</artifactId>
+			<scope>test</scope>
+		</dependency>
 
 
 		<!-- Tiles3 -->
@@ -109,33 +109,43 @@
 			<version>3.0.4</version>
 		</dependency>
 		<!-- END:Tiles3 -->
-		
+
 		<!-- Excel Read/Write -->
-	    <dependency>
-	        <groupId>org.apache.poi</groupId>
-	        <artifactId>poi</artifactId>
-	        <version>3.11</version>
-	    </dependency>
-	    <dependency>
-	        <groupId>org.apache.poi</groupId>
-	        <artifactId>poi-ooxml</artifactId>
-	        <version>3.11</version>
-	    </dependency>
+		<dependency>
+			<groupId>org.apache.poi</groupId>
+			<artifactId>poi</artifactId>
+			<version>3.11</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.poi</groupId>
+			<artifactId>poi-ooxml</artifactId>
+			<version>3.11</version>
+		</dependency>
 		<!-- END:Excel Read/Write -->
-     
-     <!--Multipart File Up&Download -->
-        <dependency>
-            <groupId>org.apache.commons</groupId>
-            <artifactId>commons-lang3</artifactId>
-        </dependency>
-        
-        <dependency>
-            <groupId>commons-io</groupId>
-            <artifactId>commons-io</artifactId>
-            <version>2.5</version>
-        </dependency>
+
+		<!--Multipart File Up&Download -->
+		<dependency>
+			<groupId>org.apache.commons</groupId>
+			<artifactId>commons-lang3</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>commons-io</groupId>
+			<artifactId>commons-io</artifactId>
+			<version>2.5</version>
+		</dependency>
 
 		<!-- END:Multipart File Up&Download -->
+
+		<!-- Security taglibs -->
+		<dependency>
+			<groupId>org.springframework.security</groupId>
+			<artifactId>spring-security-taglibs</artifactId>
+		</dependency>
+		<!-- END:Security taglibs -->
+
+
+
 
 	</dependencies>
 

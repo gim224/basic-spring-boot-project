@@ -1,6 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="sec"
+	uri="http://www.springframework.org/security/tags"%>
+
+
 
 
 <div class="main-content">
@@ -22,19 +26,36 @@
 					title="이 탬플릿만을 활용하여 import 하십시오."><span
 					class="glyphicon glyphicon-star" aria-hidden="true"></span> 개발계획서
 					양식 <span class="glyphicon glyphicon-star" aria-hidden="true"></span></a>
-				<button class="btn btn-success" data-toggle="modal"
-					data-target="#myModal" data-backdrop="static" data-keyboard="false"
-					title="엑셀 등록하기">
-					<span class="glyphicon glyphicon-floppy-open" aria-hidden="true"></span>
-					import Excel
-				</button>
+
+
+				<sec:authorize access="hasRole('ROLE_ADMIN')" var="isAdmin" />
+
+				<c:choose>
+					<c:when test="${ !isAdmin }">
+						<button class="btn btn-success" data-toggle="modal"
+							data-target="#myModal" data-backdrop="static"
+							data-keyboard="false" title="ADMIN계정에서만 허용" disabled>
+							<span class="glyphicon glyphicon-floppy-open" aria-hidden="true"></span>
+							import Excel
+						</button>
+					</c:when>
+					<c:otherwise>
+						<button class="btn btn-success" data-toggle="modal"
+							data-target="#myModal" data-backdrop="static"
+							data-keyboard="false" title="엑셀 등록하기">
+							<span class="glyphicon glyphicon-floppy-open" aria-hidden="true"></span>
+							import Excel
+						</button>
+					</c:otherwise>
+				</c:choose>
+
+
 				<a href="#" class="btn btn-warning" role="button" title="엑셀 내려받기"><span
 					class="glyphicon glyphicon-floppy-save" aria-hidden="true"></span>
 					export Excel </a> <a href="#" class="btn btn-info" role="button"><span
 					class="glyphicon glyphicon-info-sign" aria-hidden="true"></span>
-					도움말 </a> <a href="#" class="btn btn-danger" role="button"><span
-					class="glyphicon glyphicon-remove-sign" aria-hidden="true"></span>
-					닫기 </a>
+					도움말 </a>
+
 			</div>
 		</div>
 

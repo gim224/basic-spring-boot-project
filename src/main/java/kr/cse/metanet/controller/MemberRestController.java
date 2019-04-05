@@ -7,22 +7,22 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import kr.cse.metanet.dao.UserRepository;
-import kr.cse.metanet.model.User;
+import kr.cse.metanet.dao.MemberRepository;
+import kr.cse.metanet.model.Member;
 
 @RestController
-public class UserRestController {
+public class MemberRestController {
 	@Autowired
-	private UserRepository userRepository;
+	private MemberRepository memberRepository;
 
 	@RequestMapping(value = "/add")
-	public User add(User user) {
-		return userRepository.save(user);
+	public Member add(Member user) {
+		return memberRepository.save(user);
 
 	}
 
 	@RequestMapping("/list")
-	public List<User> list(Model model) {	
-		return userRepository.findAll();
+	public List<Member> list(Model model) {	
+		return memberRepository.findAll();
 	}
 }

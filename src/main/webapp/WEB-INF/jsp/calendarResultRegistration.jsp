@@ -1,6 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="sec"
+	uri="http://www.springframework.org/security/tags"%>
+							
 
 <div class="main-content">
 	<div class="container-fluid">
@@ -54,8 +57,8 @@
 				<div class="row bg-light form-inline">
 
 					<div class="form-group custom-inline-frame">
-						<label class="custom-inline-frame">개발자</label> <input type="text"
-							readonly class="form-control input-small" value="${row.developerName} ">
+						<label class="custom-inline-frame">테스트자</label> <input type="text"
+							readonly class="form-control input-small" value="${member.name} ">
 					</div>
 					<div class="form-group custom-inline-frame">
 						<label class="custom-inline-frame">계획일</label> <input
@@ -78,8 +81,8 @@
 			<div class="custom-frame">
 				<div class="row form-inline">
 					<div class="form-group custom-inline-frame">
-						<label class="custom-inline-frame">결함 : </label> <input
-							type="text" class="form-control input-small custom-inline-frame">
+						<label class="custom-inline-frame">결함 : </label> <label
+							 class=" input-small custom-inline-frame">x</label>
 						<label class="custom-inline-frame">건</label>
 					</div>
 					<div class="form-group custom-inline-frame">

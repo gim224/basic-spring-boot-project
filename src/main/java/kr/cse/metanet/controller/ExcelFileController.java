@@ -18,8 +18,8 @@ import org.springframework.web.multipart.MultipartFile;
 
 import kr.cse.metanet.model.Row;
 import kr.cse.metanet.service.RowService;
-import kr.cse.metanet.util.ExcelRead;
-import kr.cse.metanet.util.ExcelReadOption;
+import kr.cse.metanet.util.excel.ExcelRead;
+import kr.cse.metanet.util.excel.ExcelReadOption;
 
 @Controller
 public class ExcelFileController {
