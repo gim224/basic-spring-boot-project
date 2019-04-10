@@ -5,5 +5,7 @@ public enum Assigned {
 	PART_DSS,
 	PART_PTL,
 	PART_COM,
-	PART_INF	
+	PART_INF,
+	PART_PJM,
+	ETC
 }

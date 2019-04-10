@@ -7,12 +7,13 @@ import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.builders.WebSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.password.NoOpPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 
 import kr.cse.metanet.service.CustomUserDetailsService;
 
+@SuppressWarnings("deprecation")
 @EnableWebSecurity
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
 	@Autowired
@@ -20,12 +21,12 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
 	@Bean
 	public PasswordEncoder passwordEncoder() {
-		return new BCryptPasswordEncoder();
+		return NoOpPasswordEncoder.getInstance();
 	}
 
 	@Override
 	public void configure(WebSecurity web) throws Exception {
-		web.ignoring().antMatchers("/api/**","/console/**");
+		web.ignoring().antMatchers("/api/**","/console/**","/css/**","/file/**","/img/**","/js/**");
 	}
 
 	@Override
@@ -35,11 +36,11 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 //		.maxSessionsPreventsLogin(true);
 		
 		
-		http.csrf().disable().authorizeRequests().anyRequest().authenticated().and().formLogin();
+		http.csrf().disable().authorizeRequests().anyRequest().authenticated().and().formLogin().defaultSuccessUrl("/",true);
 		
 		http.logout().logoutRequestMatcher(new AntPathRequestMatcher("/logout"))
 		// 로그아웃이 성공했을 경우 이동할 페이지
-		.logoutSuccessUrl("/");
+		.logoutSuccessUrl("/login");
 	}
 
 	@Override

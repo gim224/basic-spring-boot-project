@@ -17,6 +17,7 @@
 	<link href="<c:url value="/resources/bootstrap-3.4.0-dist/css/bootstrap.min.css"/>" rel="stylesheet">
 	<!-- gijgo 1.9.11 css-->	    
     <link href="<c:url value="/resources/gijgo-combined-1.9.11/css/gijgo.min.css"/>" rel="stylesheet" type="text/css" />
+    
 	<!-- gt custom css -->
 	<link href="<c:url value="/resources/css/gt.css"/>" rel="stylesheet" type="text/css">
 	
