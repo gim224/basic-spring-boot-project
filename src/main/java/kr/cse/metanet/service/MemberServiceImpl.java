@@ -14,6 +14,7 @@ import org.springframework.stereotype.Service;
 
 import kr.cse.metanet.dao.MemberRepository;
 import kr.cse.metanet.model.Member;
+import kr.cse.metanet.model.MemberRole;
 
 @Service
 public class MemberServiceImpl implements MemberService {
@@ -46,6 +47,33 @@ public class MemberServiceImpl implements MemberService {
 		Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
 		User user = (User) authentication.getPrincipal();
 		return findByUsername(user.getUsername());
+	}
+
+	@Override
+	public String getCurrentMemberRole() {
+		Member member = this.getCurrentMember();
+		MemberRole mr = member.getMemberRole();
+		String role = null;
+		
+		if(mr == MemberRole.ROLE_ADMIN) {
+			role = "ADMIN";
+		} else if(mr == MemberRole.ROLE_CS) {
+			role = "감리";
+		}else if(mr == MemberRole.ROLE_CU) {
+			role = "고객";
+		}else if(mr == MemberRole.ROLE_DEV) {
+			role = "개발자";
+		}else if(mr == MemberRole.ROLE_PL) {
+			role = "PL";
+		}else if(mr == MemberRole.ROLE_QA) {
+			role = "품질";
+		}else if(mr == MemberRole.ROLE_TP) {
+			role = "제3자";
+		}else {
+			role = null;
+		}
+		
+		return role;
 	}
 
 }

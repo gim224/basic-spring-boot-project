@@ -2,6 +2,29 @@
 var today = new Date(new Date().getFullYear(), new Date().getMonth(),
 		new Date().getDate());
 
+$('#searchPlanStartDate').datepicker({
+	uiLibrary : 'bootstrap',
+	format : 'yyyy-mm-dd',
+	modal : true,
+	header: true,
+	footer: true,
+	// minDate: today,
+	maxDate : function() {
+		return $('#devPlanEndDate').val();
+	}
+});
+$('#searchPlanEndDate').datepicker({
+	uiLibrary : 'bootstrap',
+	format : 'yyyy-mm-dd',
+	modal : true,
+	header: true,
+	footer: true,
+	// minDate: today,
+	maxDate : function() {
+		return $('#devPlanEndDate').val();
+	}
+});
+
 $('#devPlanStartDate').datepicker({
 	uiLibrary : 'bootstrap',
 	format : 'yyyy-mm-dd',
@@ -24,7 +47,7 @@ $('#devPlanEndDate').datepicker({
 	}
 });
 
-$('#devRealStartDate').datepicker({
+$('#realDevStartDate').datepicker({
 	uiLibrary : 'bootstrap',
 	// minDate: today,
 	format : 'yyyy-mm-dd',
@@ -36,7 +59,7 @@ $('#devRealStartDate').datepicker({
 	}
 });
 
-$('#devRealEndDate').datepicker({
+$('#realDevEndDate').datepicker({
 	uiLibrary : 'bootstrap',	
 	// minDate: today,
 	format : 'yyyy-mm-dd',

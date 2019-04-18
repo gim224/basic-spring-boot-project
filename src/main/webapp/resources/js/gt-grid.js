@@ -1,4 +1,6 @@
-    // specify the columns
+ 
+
+// specify the columns
     var columnDefs = [
     { headerName: "프로그램목록",
     	children: [
@@ -36,13 +38,58 @@
     		  ]
       },
       {
-    	  headerName: "(??)단위테스트",
+    	  headerName: "개발자 단위테스트",
     	  children: [
-      {headerName: "담당자", field: "(??)단위테스트-담당자"},
-      {headerName: "계획일", field: "(??)단위테스트-계획일"},
-      {headerName: "실적일", field: "(??)단위테스트-실적일"},
-      {headerName: "결과", field: "(??)단위테스트-결과"}
-      	]
+    		  {headerName: "담당자", field: "managerDEV"},
+    		  {headerName: "계획일", field: "planDateDEV"},
+    		  {headerName: "실적일", field: "realDateDEV"},
+    		  {headerName: "결과", field: "resultDEV"}
+    		  ]
+      },
+      {
+    	  headerName: "PL 단위테스트",
+    	  children: [
+    		  {headerName: "담당자", field: "managerPL"},
+    		  {headerName: "계획일", field: "planDatePL"},
+    		  {headerName: "실적일", field: "realDatePL"},
+    		  {headerName: "결과", field: "resultPL"}
+    		  ]
+      },
+      {
+    	  headerName: "QA 단위테스트",
+    	  children: [
+    		  {headerName: "담당자", field: "managerQA"},
+    		  {headerName: "계획일", field: "planDateQA"},
+    		  {headerName: "실적일", field: "realDateQA"},
+    		  {headerName: "결과", field: "resultQA"}
+    		  ]
+      },
+      {
+    	  headerName: "감리 단위테스트",
+    	  children: [
+    		  {headerName: "담당자", field: "managerCS"},
+    		  {headerName: "계획일", field: "planDateCS"},
+    		  {headerName: "실적일", field: "realDateCS"},
+    		  {headerName: "결과", field: "resultCS"}
+    		  ]
+      },
+      {
+    	  headerName: "제3자 단위테스트",
+    	  children: [
+    		  {headerName: "담당자", field: "managerTP"},
+    		  {headerName: "계획일", field: "planDateTP"},
+    		  {headerName: "실적일", field: "realDateTP"},
+    		  {headerName: "결과", field: "resultTP"}
+    		  ]
+      },
+      {
+    	  headerName: "고객 단위테스트",
+    	  children: [
+    		  {headerName: "담당자", field: "managerCU"},
+    		  {headerName: "계획일", field: "planDateCU"},
+    		  {headerName: "실적일", field: "realDateCU"},
+    		  {headerName: "결과", field: "resultCU"}
+    		  ]
       },
     ];
     
@@ -68,8 +115,8 @@
 
 //    	  }
       rowSelection: 'single',
-      onRowClicked: onRowClicked
-
+      onRowDoubleClicked: onRowClicked,
+      overlayLoadingTemplate: '<span class="ag-overlay-loading-center">조회 중...</span>'
     };
     
     function onRowClicked() {
@@ -83,7 +130,7 @@
         });
         
   	  var popUrl = "http://localhost:8080/resultRegistration/?idx="+selectedRowsString;  	  
-  	  var popOption = "width=800, height=600, resizable=no, scrollbars=no, status=no,location=no,toolbar=no;";
+  	  var popOption = "width=800, height=800, resizable=no, scrollbars=no, status=no,location=no,toolbar=no;";
   	  var newWindow = window.open(popUrl, "singleton", popOption);
     }
     
@@ -93,6 +140,17 @@
             allColumnIds.push(column.colId);
         });
         gridOptions.columnApi.autoSizeColumns(allColumnIds);
+    }
+    
+    function onBtShowLoading(time) {
+        gridOptions.api.showLoadingOverlay();
+        setTimeout(function(){
+          onBtHide();
+        },time);
+    }
+    
+    function onBtHide() {
+        gridOptions.api.hideOverlay();
     }
     
     
@@ -106,8 +164,28 @@
 
   
   fetch('http://localhost:8080/api/rows').then(function(response) {
-	    return response.json();
+	  return response.json();
 	  }).then(function(data) {
-	    gridOptions.api.setRowData(data);
-	    autoSizeAll();
-	  })
+		  gridOptions.api.setRowData(data);
+		  autoSizeAll();
+		  }
+	  )	
+	  
+ 
+	  
+	  $("#submit").on("click",function(){
+		  var formData = $("#search").serializeArray();
+		  $.ajax({
+			 type: "GET",
+			 url: "http://localhost:8080/api/search/rows",
+			 data: formData,
+			 dataType: "json",
+			 success: function(newData){ 
+				 gridOptions.api.setRowData(newData);
+				 onBtShowLoading(500);
+			 }
+		  });
+		  
+		  return false;
+	  });
+	 

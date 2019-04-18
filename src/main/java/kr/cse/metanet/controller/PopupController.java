@@ -24,8 +24,10 @@ public class PopupController {
 	public String result(@RequestParam("idx") int idx, Model model) {
 
 		Member member = memberService.getCurrentMember();
+		String role = memberService.getCurrentMemberRole();
 		model.addAttribute("member", member);
-
+		model.addAttribute("role", role);
+		
 		Row row = rowService.getOne(idx);
 		if (row != null) {
 			model.addAttribute("row", row);

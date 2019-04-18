@@ -1,9 +1,6 @@
 package kr.cse.metanet.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.core.Authentication;
-import org.springframework.security.core.context.SecurityContextHolder;
-import org.springframework.security.core.userdetails.User;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -22,8 +19,9 @@ public class HomeController {
 	public String home(Model model) {
 
 		Member member = memberSerivce.getCurrentMember();
-
+		String role = memberSerivce.getCurrentMemberRole();
 		model.addAttribute("member", member);
+		model.addAttribute("role",role);
 
 		return "home";
 	}
@@ -32,4 +30,7 @@ public class HomeController {
 	public String todoList() {
 		return "todoList";
 	}
+
+
+
 }

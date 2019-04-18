@@ -70,6 +70,38 @@ public class Row {
 	
 	private LocalDate realDevEndDate;	// 실제개발종료일
 	
+//	@OneToMany(fetch=FetchType.LAZY, cascade= CascadeType.ALL)
+//	@JoinColumn(name="row_idx")
+//	private List<UnitTestPlan> unitTestPlan;
 	
+	private String managerDEV;
+	private LocalDate planDateDEV;
+	private LocalDate realDateDEV;
+	private String resultDEV;
+	
+	private String managerPL;
+	private LocalDate planDatePL;
+	private LocalDate realDatePL;
+	private String resultPL;
+	
+	private String managerQA;
+	private LocalDate planDateQA;
+	private LocalDate realDateQA;
+	private String resultQA;
+	
+	private String managerCS;
+	private LocalDate planDateCS;
+	private LocalDate realDateCS;
+	private String resultCS;
+	
+	private String managerTP;
+	private LocalDate planDateTP;
+	private LocalDate realDateTP;
+	private String resultTP;
+	
+	private String managerCU;
+	private LocalDate planDateCU;
+	private LocalDate realDateCU;
+	private String resultCU;
 
 }

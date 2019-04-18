@@ -15,11 +15,10 @@
 				<div class="media-body">
 					<h3 class="media-heading">Name : ${member.name }</h3>
 					<h5>
-						ID :
-						<sec:authentication property="principal.username" />
+						ID : ${member.username }
 					</h5>
 					<h5>
-						<sec:authentication property="principal.authorities" />
+						${role }
 					</h5>
 				</div>
 			</div>

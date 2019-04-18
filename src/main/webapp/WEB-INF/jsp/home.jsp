@@ -7,14 +7,15 @@
 
 
 
+
 <div class="main-content">
 	<div class="container-fluid">
 
 		<div class="custom-top-bottom-frame container-fluid">
 			<div class="col-md-3">
-				<h6>
-					<b>프로그램목록관리(??)</b>
-				</h6>
+				<h5>
+					<b>프로그램목록관리</b>
+				</h5>
 			</div>
 			<div class="col-md-3 custom-div-align">
 				<h6>(gt-kim/V.201903)</h6>
@@ -59,53 +60,69 @@
 			</div>
 		</div>
 
-
-
 		<div class="custom-frame container-fluid bg-warning">
-			<form class="form-inline" action="#">
+			<form class="form-inline" id="search" method="get">
 				<div class="form-group custom-form-frame">
-					<label class="">업무대분류</label> <select class="form-control input-sm"
-						id="part" name="">
-						<option>{전체}</option>
-						<option>{LAM}</option>
-						<option>{PTL}</option>
-						<option>{DSS}</option>
-						<option>{COM}</option>
+					<label class="">부문명</label> <select class="form-control input-sm"
+						id="partName" name="partName">
+						<option selected="selected">전체</option>
+						<option>LAM</option>
+						<option>PTL</option>
+						<option>DSS</option>
+						<option>COM</option>
 					</select>
 				</div>
 
 				<div class=" form-group custom-form-frame">
 					<label class="">개발자</label> <input type="text"
-						class="form-control input-sm">
+						class="form-control input-sm" id="developerName"
+						name="developerName">
 				</div>
 				<div class=" form-group custom-form-frame">
-					<label class="">프로그램 ID</label> <input type="text"
-						class="form-control input-sm">
+					<label class="">프로그램ID</label> <input type="text"
+						class="form-control input-sm" id="programId" name="programId">
 				</div>
 				<div class=" form-group custom-form-frame">
-					<label class="">프로그램 명</label> <input type="text"
-						class="form-control input-sm">
+					<label class="">프로그램명</label> <input type="text"
+						class="form-control input-sm" id="programName" name="programName">
 				</div>
 				<div class=" form-group custom-form-frame">
-					<label class="">개발계획종료일</label> <input id="devPlanStartDate"
-						class="input-sm" width="180" /> ~ <input id="devPlanEndDate"
-						class="input-sm" width="180" />
+					<label class="">개발계획종료일</label> <input id="searchPlanStartDate"
+						name="searchPlanStartDate" class="input-sm" width="180" /> ~ <input
+						id="searchPlanEndDate" name="searchPlanEndDate" class="input-sm"
+						width="180" />
 				</div>
 				<div class=" form-group custom-form-frame">
 					<label class="">진행상태</label> <select class="input-sm" id="progress"
-						name="">
-						<option>{전체}</option>
-						<option>{2}</option>
-						<option>{3}</option>
-						<option>{4}</option>
+						name="progress">
+						<option selected="selected">...</option>
+						<option>개발자 완료</option>
+						<option>PL 완료</option>
+						<option>QA 완료</option>
+						<option>감리 완료</option>
+						<option>제3자 완료</option>
+						<option>고객 완료</option>
 					</select>
 				</div>
 
+
+
 				<div class=" form-group custom-form-frame">
-					<button type="submit" class="btn btn-primary btn-sm">
+					<button type="submit" id="submit" class="btn btn-primary btn-sm">
 						<span class="glyphicon glyphicon-search" aria-hidden="true"></span>
 						조회
 					</button>
+				</div>
+				
+				
+
+				<button type="button" class="btn btn-default btn-sm" data-toggle="collapse"
+					data-target="#demo"><span class="glyphicon glyphicon-th-list" aria-hidden="true"></span> 조회조건 더보기</button>
+				<div id="demo" class="collapse">
+				<div class=" form-group custom-form-frame">
+					<label class="">난이도</label> <input type="text"
+						class="form-control input-sm" id="levelOfDifficulty" name="levelOfDifficulty">
+				</div>
 				</div>
 			</form>
 		</div>
@@ -128,7 +145,7 @@
 		<div class="modal-content">
 			<div class="modal-header">
 				<button type="button" class="close" data-dismiss="modal">&times;</button>
-				<h4 class="modal-title">File Upload</h4>
+				<h4 class="modal-title">개발계획서 양식 업로드</h4>
 			</div>
 			<form method="POST" enctype="multipart/form-data"
 				action="<c:url value="/importFile"/>">
